@@ -8,7 +8,7 @@ FROM alpine:3.16
 RUN adduser -D gitleaks && \
     apk add --no-cache bash git openssh-client
 COPY --from=build /go/src/github.com/zricethezav/gitleaks/bin/* /usr/bin/
-USER gitleaks
+USER root
 
 RUN git config --global --add safe.directory '*'
 
